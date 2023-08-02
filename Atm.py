@@ -1,4 +1,4 @@
-from credentianls import ids, passwords 
+from credentials import ids, passwords 
 from customer import Customer
 
 line = '-----------------------------------'
