@@ -4,6 +4,14 @@ from account import account
 line = '------------------------------------------'
 class Customer:
     cust_account = account()
+    #customer_id, first_name, last_name, gender, contact_number, res_address
+    def __init__(self, customer_id, first_name, last_name, gender, contact_number, res_address) -> None:
+        self.customerid = customer_id
+        self.firstname = first_name
+        self.lastnam = last_name
+        self.gender = gender
+        self.contact = contact_number
+        self.res_address = res_address
 
     def login(self):
         id = input('Enter your login id: ')

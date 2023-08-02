@@ -2,8 +2,8 @@ from credentials import ids, passwords
 from customer import Customer
 
 line = '-----------------------------------'
-cust = Customer()
-
+cust = Customer(954616, "Felix", "Bedenhost", 'Male', 78456216, "Manzini Eswatini")
+customers_list = []
 
 #A method to start the program
 def start():    
@@ -22,7 +22,8 @@ def adminLogin():
     admin = Admin(85005, "Lutfo", "Dlamini", 'M', "administrator", 78491526, 'mail@google.com')
     admin.login()
 def cashierLogin():
-    print('Cashier now Login')
+    cash = Cashier()
+    cash.login()
 def customerLogin():
     cust.login()
 
@@ -107,6 +108,35 @@ class Admin(Employee):
         next_transaction = input('Do you want to perform another transaction? Y/N ')
         if next_transaction.lower() == 'y':
             self.displayMenu()
+class Cashier:
+    def displayMenu(self):
+        choice = input(f'{line}\n Choose what to do below\n1 -------- Find Account\n2 -------- Find Customer\n3 -------- Make Deposit\
+                       \n4 -------- Make Withdrawal\n5 -------- Make Transfere\n0 -------- Exit\n')
+        if choice == '1':
+            self.findAccount()
+        elif choice == '2':
+            cust_id = input('Enter an id to find: ')
+            for i in customers_list:
+                if i.customerid == cust_id:
+                    print('Customer Details:\tName {i.firstname}')
+        elif choice == '3':
+            acc = input('Enter account number to make deposit: ')
+            print(f'You have entered this acc {acc}')            
+        else:
+            print('Wrong choice!')
+    def login(self):
+        login = input('Enter your login: ')
+        passw = input('Enter your password: ')
+        if login == '10001' and passw == 'passc': #Subject to change (take credentials from file)
+            self.displayMenu()
+        else:
+            print('Wrong credentials')
+    def findAccount(self):
+        print('Finding account')
+    def makeWithdrawal(self):
+        #This should at least make a track to the customer in like (cust.deposit, cust. withdraw)
+        print('Witdrawing Money from customer account')
 
+            
 if __name__ == "__main__":
     start()
