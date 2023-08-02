@@ -81,7 +81,8 @@ class Admin(Employee):
     def findEmployee(self):
         print('Finding Employee')
     def findCustomer(self):
-        print('Finding customer')
+        cust_id = input('Enter customer id to find: ')
+        print(f'Your entered this id to find : {cust_id}')
     def listEmployees(self):
         print('Emp ID\tFirst Name\tLast Name\tGender\tJob Title\tContact\tEmail')
         for i in self.employees:
